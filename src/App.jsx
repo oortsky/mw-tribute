@@ -74,7 +74,7 @@ const App = () => {
     };
 
     var returnTopVideo = await fetch(
-      "https://www.googleapis.com/youtube/v3/search?channelId=UCHF0NFFfBeyBWKBFpJQsAqQ&order=viewCount&maxResults=6&key=AIzaSyCmFHBZT8KT1nWsmoAZNyTc92ISYLPs-1U",
+      `${process.env.YT_VIDEO_API_BASE_URL}/search?channelId=UCHF0NFFfBeyBWKBFpJQsAqQ&order=viewCount&maxResults=6&key=${process.env.YT_API_KEY}`,
       videoParameters
     )
       .then(response => response.json())
@@ -93,7 +93,7 @@ const App = () => {
     };
 
     var returnDataYoutube = await fetch(
-      "https://youtube.googleapis.com/youtube/v3/channels?part=snippet,contentDetails,statistics&id=UCHF0NFFfBeyBWKBFpJQsAqQ&key=AIzaSyCmFHBZT8KT1nWsmoAZNyTc92ISYLPs-1U",
+      `${process.env.YT_DATA_API_BASE_URL}/channels?part=snippet,contentDetails,statistics&id=UCHF0NFFfBeyBWKBFpJQsAqQ&key=${process.env.YT_API_KEY}`,
       dataParameters
     )
       .then(response => response.json())
